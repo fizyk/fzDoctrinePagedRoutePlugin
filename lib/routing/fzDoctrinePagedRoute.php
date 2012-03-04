@@ -86,7 +86,7 @@ class fzDoctrinePagedRoute extends sfRoute
 
         //creating pager
         $this->pager = new sfDoctrinePager( $this->options['model'] , $this->items_per_page );
-        $this->pager->setQuery( Doctrine::getTable( $this->options['model'] )->$browse_method() );
+        $this->pager->setQuery( Doctrine::getTable( $this->options['model'] )->$browse_method($parameters) );
         $this->pager->setPage( $parameters['page'] );
         $this->pager->init();
 
